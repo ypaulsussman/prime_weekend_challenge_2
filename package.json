@@ -1,0 +1,23 @@
+{
+  "name": "weekend_challenge",
+  "version": "1.0.0",
+  "description": "Welcome to your second weekend challenge! We are going to be building a calculator application using jQuery, Node, and Express!!",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ypaulsussman/weekend_challenge_2.git"
+  },
+  "author": "Y Paul",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ypaulsussman/weekend_challenge_2/issues"
+  },
+  "homepage": "https://github.com/ypaulsussman/weekend_challenge_2#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "jquery": "^3.2.0"
+  }
+}
