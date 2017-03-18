@@ -4,6 +4,7 @@ $(document).ready(function() {
   var val02 = "";
   var digit = "";
   $('#val02').hide();
+  var slowReveal;
 
   $('.numberButton').on('click', function() {
   digit = $(this).data('digit');
@@ -47,8 +48,7 @@ $(document).ready(function() {
         url: '/calculate',
         data: calculation,
         success: function (response) {
-          $('.answer').append('<h1 id = "answer"> The answer is: ' + response.calc + '</h1>');
-          $('.clear').append('<button type="button" id="clearButton">Clear</button>');
+          showAnswer(response);
         }
       });
     } else {
@@ -68,5 +68,12 @@ $(document).ready(function() {
       $('#val01').show();
   });
 
+//fuck i hate how kludgy that is...
+  function showAnswer(response) {
+    $('.wait').append('<h1 id = "calcScreen">Calculating...</h1>').delay(3000).fadeOut(10);
+    $('.answer').append('<h1 id = "answer"> The answer is: ' + response.calc + '</h1>'+'<br>'+'<button type="button" id="clearButton">Clear</button>');
+    $('.answer').hide();
+    $('.answer').delay(3000).fadeIn(10);
+  }
 
 });
