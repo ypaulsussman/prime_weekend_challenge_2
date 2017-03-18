@@ -42,7 +42,7 @@ $(document).ready(function() {
       };
       $.ajax({
       type: 'POST',
-      url: '/calculate',
+      url: '/calculate/calculate',  //*NOTE* to future YPaul: the need to add a second "calculate" to this path when creating the module really took you a while.
       data: calculation,
       //the below code first appends the "Calculating" text, then after three seconds
           //replaces that text with the answer.

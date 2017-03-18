@@ -1,4 +1,9 @@
-app.post('/calculate', function(req, res) {                       //performs calculation, depending on variables passed via POST request
+var express = require('express');
+var router = express.Router();
+
+var result = {};                          //creates empty object for result
+
+router.post('/calculate', function(req, res) {                       //performs calculation, depending on variables passed via POST request
   if (req.body.type === "add") {
     result.calc = parseFloat(req.body.x) + parseFloat(req.body.y);
   } else if (req.body.type === "subtract") {
@@ -10,3 +15,5 @@ app.post('/calculate', function(req, res) {                       //performs cal
   }
   res.send(result);
 });
+
+module.exports = router;
