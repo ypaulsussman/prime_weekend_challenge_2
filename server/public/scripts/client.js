@@ -7,81 +7,72 @@ $(document).ready(function() {
   var slowReveal;
 
   $('.numberButton').on('click', function() {
-  digit = $(this).data('digit');
+  digit = $(this).data('digit');      //gets numeric value button
   if (!operand){
-    val01+=digit;
-    $('#val01').text(val01);
-  } else{
+    val01+=digit;                 //adds value to first operator string
+    updateDisplay('#val01',val01);
+  } else {
     val02+=digit;
-    $('#val02').text(val02);
+    updateDisplay('#val02',val02);
+    $('#submitButton').attr('disabled', false); //allows calculation requests once second operator has been enterd
   }
   });
 
   $('.deleteButton').on('click', function() {
     if (!operand){
-      val01 = val01.slice(0,-1);
-      $('#val01').text(val01);
+      val01 = val01.slice(0,-1);      //removes last value of first operator string
+      updateDisplay('#val01',val01);
     } else{
       val02 = val02.slice(0,-1);
-      $('#val02').text(val02);
+      updateDisplay('#val02',val02);
     }
   });
 
-
   $('.operandButton').on('click', function() {
-    operand = $(this).data('operand');
-    $('#val01').hide();
-    $('#val02').show();
+    operand = $(this).data('operand');        //gets operand from button
+    $('#val01, #val02').toggle();             //reveals second operator string
     return operand;
   });
 
   $('#submitButton').on('click', function() {
-    if (val01 && val02 && operand) {
-      $('#unfinished').remove();
-      var calculation = {
+      var calculation = {         //creates object to pass to server
         x: parseFloat(val01),
         y: parseFloat(val02),
         type: operand,
       };
-        $.ajax({
-        type: 'POST',
-        url: '/calculate',
-        data: calculation,
-        success: function (response) {
-          $('.wait').append('<h1 id = "calcScreen">Calculating...</h1>');
-          setTimeout(function() {
-            $('.wait').empty();
-            $('.answer').append('<h1 id = "answer"> The answer is: ' + response.calc + '</h1>');
-            $('.clear').append('<button type="button" id="clearButton">Clear</button>');
-          },3000);
-          // showAnswer(response);
-        }
-      });
-    } else {
-      $('.answer').append('<h1 id = "unfinished">finish your calculation!</h1>');
-    }
+      $.ajax({
+      type: 'POST',
+      url: '/calculate',
+      data: calculation,
+      //the below code first appends the "Calculating" text, then after three seconds
+          //replaces that text with the answer.
+      success: function (response) {
+        $('.wait').append('<h1 id = "calcScreen">Calculating...</h1>');
+        setTimeout(function() {
+          $('.wait').empty();
+          $('.answer').append('<h1 id = "answer"> The answer is: ' + response.calc + '</h1>');
+        },3000);
+      }
+    });
   });
 
   $('.clear').on('click', '#clearButton', function() {
-      $('.answer, .clear').empty();
-      operand = "";
+      $('.answer').empty();       //removes previous answer
+      operand = "";               //resets calculation variables
       val01 = "";
       val02 = "";
       digit = "";
-      $('#val01').text(val01);
-      $('#val02').text(val02);
+      updateDisplay('#val01',val01);   //refreshes displays
+      updateDisplay('#val02',val02);
       $('#val02').hide();
       $('#val01').show();
+      $('#submitButton').attr('disabled', true); //freezes "submit" button
   });
 
-//fuck i hate how kludgy that is...
-  function showAnswer(response) {
-    $('.wait').append('<h1 id = "calcScreen">Calculating...</h1>').delay(3000).fadeOut(10);
-    $('.answer').append('<h1 id = "answer"> The answer is: ' + response.calc + '</h1>'+'<br>'+'<button type="button" id="clearButton">Clear</button>');
-    $('.answer').hide();
-    $('.answer').delay(3000).fadeIn(10);
-  }
-
-
-
 });
+
+//I'm sorry I couldn't refactor the code above more thoroughly...let me know
+//if there's anything else you'd recommend!
+function updateDisplay(display, newValue) {
+  $(display).text(newValue);
+}

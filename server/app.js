@@ -1,21 +1,20 @@
 //requires and globals
-var express = require('express');
-var app = express();
-var path = require('path');
-var bodyParser = require('body-parser');
-var port = 5001;
+var express = require('express');         //calls functionality of the express framework
+var app = express();                      //makes that functionality accessible as an object
+var path = require('path');               //calls functionality of the path module
+var bodyParser = require('body-parser');  //calls functionality of the body-parser module
+var port = 5001;                          //sets the port
 
-var toprint = "message returned";
-var result = {};
+var result = {};                          //creates empty object for result
 
-app.use(express.static('server/public'));
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static('server/public'));   //enables serving static files directly from the "public" directory
+app.use(bodyParser.urlencoded({extended: true})); //extracts body portion of incoming requests; exposes it as "req.body" object
 
 app.get('/', function(req, res) {
-  res.sendFile(path.resolve('server/public/views/index.html'));
+  res.sendFile(path.resolve('server/public/views/index.html'));     //returns "index.html" when client requests along top-level path
 });
 
-app.post('/calculate', function(req, res) {
+app.post('/calculate', function(req, res) {                       //performs calculation, depending on variables passed via POST request
   if (req.body.type === "add") {
     result.calc = parseFloat(req.body.x) + parseFloat(req.body.y);
   } else if (req.body.type === "subtract") {
@@ -25,11 +24,10 @@ app.post('/calculate', function(req, res) {
   } else if (req.body.type === "divide") {
     result.calc = parseFloat(req.body.x) / parseFloat(req.body.y);
   }
-  console.log("message received");
   res.send(result);
 });
 
 
-app.listen(port,function() {
+app.listen(port,function() {                                      //enables server to field requests from client
   console.log('listening on port', port);
 });
