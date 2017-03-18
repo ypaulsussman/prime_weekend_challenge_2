@@ -51,6 +51,7 @@ $(document).ready(function() {
         setTimeout(function() {
           $('.wait').empty();
           $('.answer').append('<h2 id = "finAnswer"> The answer is: ' + response.calc + '</h2>');
+          $('#submitButton').attr('disabled', true); //freezes "submit" button
         },3000);
       }
     });
@@ -66,7 +67,6 @@ $(document).ready(function() {
       updateDisplay('#val02',val02);
       $('#val02').hide();
       $('#val01').show();
-      $('#submitButton').attr('disabled', true); //freezes "submit" button
   });
 
 });
