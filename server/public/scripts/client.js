@@ -48,7 +48,13 @@ $(document).ready(function() {
         url: '/calculate',
         data: calculation,
         success: function (response) {
-          showAnswer(response);
+          $('.wait').append('<h1 id = "calcScreen">Calculating...</h1>');
+          setTimeout(function() {
+            $('.wait').empty();
+            $('.answer').append('<h1 id = "answer"> The answer is: ' + response.calc + '</h1>');
+            $('.clear').append('<button type="button" id="clearButton">Clear</button>');
+          },3000);
+          // showAnswer(response);
         }
       });
     } else {
@@ -75,5 +81,7 @@ $(document).ready(function() {
     $('.answer').hide();
     $('.answer').delay(3000).fadeIn(10);
   }
+
+
 
 });
