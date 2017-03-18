@@ -18,7 +18,7 @@ $(document).ready(function() {
   }
   });
 
-  $('.deleteButton').on('click', function() {
+  $('#deleteButton').on('click', function() {
     if (!operand){
       val01 = val01.slice(0,-1);      //removes last value of first operator string
       updateDisplay('#val01',val01);
@@ -47,16 +47,16 @@ $(document).ready(function() {
       //the below code first appends the "Calculating" text, then after three seconds
           //replaces that text with the answer.
       success: function (response) {
-        $('.wait').append('<h1 id = "calcScreen">Calculating...</h1>');
+        $('.wait').append('<h2 id = "calcScreen">Calculating...</h2>');
         setTimeout(function() {
           $('.wait').empty();
-          $('.answer').append('<h1 id = "answer"> The answer is: ' + response.calc + '</h1>');
+          $('.answer').append('<h2 id = "finAnswer"> The answer is: ' + response.calc + '</h2>');
         },3000);
       }
     });
   });
 
-  $('.clear').on('click', '#clearButton', function() {
+  $('#clearButton').on('click', function() {
       $('.answer').empty();       //removes previous answer
       operand = "";               //resets calculation variables
       val01 = "";

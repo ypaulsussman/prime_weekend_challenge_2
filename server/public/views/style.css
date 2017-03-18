@@ -1,4 +1,18 @@
 .values {
-  height: 50px;
-  width: 1000px;
+  height: 100px;
+  text-align: center;
+}
+
+button{
+  width: 100%;
+  margin: 20px 0;
+}
+
+ .wait, .answer{
+  text-align: center;
+  margin: auto;
+}
+
+#val01, #val02, #calcScreen, #finAnswer{
+  font-size: 5em;
 }
