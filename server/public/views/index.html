@@ -7,22 +7,44 @@
     <script src="scripts/client.js" charset="utf-8"></script>
   </head>
   <body>
+    <div class="values">
+      <h2 id="val01"></h2>
+      <h2 id="val02"></h2>
+    </div>
+
+    <div class="numbers">
+      <button type="button" class="numberButton" data-digit="1">1</button>
+      <button type="button" class="numberButton" data-digit="2">2</button>
+      <button type="button" class="numberButton" data-digit="3">3</button>
+      <button type="button" class="numberButton" data-digit="4">4</button>
+      <button type="button" class="numberButton" data-digit="5">5</button>
+      <button type="button" class="numberButton" data-digit="6">6</button>
+      <button type="button" class="numberButton" data-digit="7">7</button>
+      <button type="button" class="numberButton" data-digit="8">8</button>
+      <button type="button" class="numberButton" data-digit="9">9</button>
+      <button type="button" class="numberButton" data-digit="0">0</button>
+      <button type="button" class="deleteButton">Del</button>
+      <!-- <button type="button" class="numberButton" data-digit="0">0</button> -->
+    </div>
+
     <div class="operators">
-      <input type="text" placeholder="Value 01" id="val01">
+      <!-- <input type="text" placeholder="Value 01" id="val01"> -->
       <button type="button" class="operandButton" data-operand="add">+</button>
       <button type="button" class="operandButton" data-operand="subtract">-</button>
       <button type="button" class="operandButton" data-operand="multiply">*</button>
       <button type="button" class="operandButton" data-operand="divide">/</button>
-      <input type="text" placeholder="Value 02" id="val02">
+      <!-- <input type="text" placeholder="Value 02" id="val02"> -->
     </div>
-    <span class="submit">
+
+    <div class="submit">
       <button type="button" id="submitButton">=</button>
-    </span>
+    </div>
+
     <div class="answer">
-
     </div>
+
     <div class="clear">
-
     </div>
+
   </body>
 </html>

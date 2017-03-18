@@ -1,18 +1,45 @@
 $(document).ready(function() {
-
   var operand = "";
+  var val01 = "";
+  var val02 = "";
+  var digit = "";
+  $('#val02').hide();
+
+  $('.numberButton').on('click', function() {
+  digit = $(this).data('digit');
+  if (!operand){
+    val01+=digit;
+    $('#val01').text(val01);
+  } else{
+    val02+=digit;
+    $('#val02').text(val02);
+  }
+  });
+
+  $('.deleteButton').on('click', function() {
+    if (!operand){
+      val01 = val01.slice(0,-1);
+      $('#val01').text(val01);
+    } else{
+      val02 = val02.slice(0,-1);
+      $('#val02').text(val02);
+    }
+  });
+
 
   $('.operandButton').on('click', function() {
     operand = $(this).data('operand');
+    $('#val01').hide();
+    $('#val02').show();
     return operand;
   });
 
   $('#submitButton').on('click', function() {
-    if ($('#val01').val() && $('#val02').val() && operand) {
+    if (val01 && val02 && operand) {
       $('#unfinished').remove();
       var calculation = {
-        x: $('#val01').val(),
-        y: $('#val02').val(),
+        x: parseFloat(val01),
+        y: parseFloat(val02),
         type: operand,
       };
         $.ajax({
@@ -31,7 +58,14 @@ $(document).ready(function() {
 
   $('.clear').on('click', '#clearButton', function() {
       $('.answer, .clear').empty();
-      $('#val01, #val02').val('');
+      operand = "";
+      val01 = "";
+      val02 = "";
+      digit = "";
+      $('#val01').text(val01);
+      $('#val02').text(val02);
+      $('#val02').hide();
+      $('#val01').show();
   });
 
 
