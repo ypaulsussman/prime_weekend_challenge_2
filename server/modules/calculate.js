@@ -6,14 +6,22 @@ var result = {};
 
 //performs calculation, depending on variables passed via POST request
 router.post('/calculate', function(req, res) {
-  if (req.body.type === "add") {
-    result.calc = parseFloat(req.body.x) + parseFloat(req.body.y);
-  } else if (req.body.type === "subtract") {
-    result.calc = parseFloat(req.body.x) - parseFloat(req.body.y);
-  } else if (req.body.type === "multiply") {
-    result.calc = parseFloat(req.body.x) * parseFloat(req.body.y);
-  } else if (req.body.type === "divide") {
-    result.calc = parseFloat(req.body.x) / parseFloat(req.body.y);
+  var operation = req.body.type;
+  switch (operation) {
+    case 'add':
+      result.calc = parseFloat(req.body.x) + parseFloat(req.body.y);
+      break;
+    case 'subtract':
+      result.calc = parseFloat(req.body.x) - parseFloat(req.body.y);
+      break;
+    case 'multiply':
+      result.calc = parseFloat(req.body.x) * parseFloat(req.body.y);
+      break;
+    case 'divide':
+      result.calc = parseFloat(req.body.x) / parseFloat(req.body.y);
+      break;
+      default:
+      result.calc = "Somehow you managed not to send an operation...";
   }
   res.send(result);
 });
