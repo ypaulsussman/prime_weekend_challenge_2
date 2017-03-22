@@ -7,20 +7,24 @@ $(document).ready(function() {
   var slowReveal;
 
   $('.numberButton').on('click', function() {
-  digit = $(this).data('digit');      //gets numeric value button
+  //gets numeric value button
+  digit = $(this).data('digit');
   if (!operand){
-    val01+=digit;                 //adds value to first operator string
+    //adds value to first operator string
+    val01+=digit;
     updateDisplay('#val01',val01);
   } else {
     val02+=digit;
     updateDisplay('#val02',val02);
-    $('#submitButton').attr('disabled', false); //allows calculation requests once second operator has been enterd
+    //allows calculation requests once second operator has been enterd
+    $('#submitButton').attr('disabled', false);
   }
   });
 
   $('#deleteButton').on('click', function() {
     if (!operand){
-      val01 = val01.slice(0,-1);      //removes last value of first operator string
+      //removes last value of first operator string
+      val01 = val01.slice(0,-1);
       updateDisplay('#val01',val01);
     } else{
       val02 = val02.slice(0,-1);
@@ -29,13 +33,16 @@ $(document).ready(function() {
   });
 
   $('.operandButton').on('click', function() {
-    operand = $(this).data('operand');        //gets operand from button
-    $('#val01, #val02').toggle();             //reveals second operator string
+    //gets operand from button
+    operand = $(this).data('operand');
+    //reveals second operator string
+    $('#val01, #val02').toggle();
     return operand;
   });
 
   $('#submitButton').on('click', function() {
-      var calculation = {         //creates object to pass to server
+      //creates object to pass to server
+      var calculation = {
         x: parseFloat(val01),
         y: parseFloat(val02),
         type: operand,
@@ -43,27 +50,31 @@ $(document).ready(function() {
       $.ajax({
       type: 'POST',
       url: '/calculate/calculate',  //*NOTE* to future YPaul: the need to add a second "calculate" to this path when creating the module really took you a while.
-      data: calculation,
       //the below code first appends the "Calculating" text, then after three seconds
           //replaces that text with the answer.
+      data: calculation,
       success: function (response) {
         $('.wait').append('<h2 id = "calcScreen">Calculating...</h2>');
         setTimeout(function() {
           $('.wait').empty();
           $('.answer').append('<h2 id = "finAnswer"> The answer is: ' + response.calc + '</h2>');
-          $('#submitButton').attr('disabled', true); //freezes "submit" button
+          //freezes "submit" button
+          $('#submitButton').attr('disabled', true);
         },3000);
       }
     });
   });
 
   $('#clearButton').on('click', function() {
-      $('.answer').empty();       //removes previous answer
-      operand = "";               //resets calculation variables
+      //removes previous answer
+      $('.answer').empty();
+      //resets calculation variables
+      operand = "";
       val01 = "";
       val02 = "";
       digit = "";
-      updateDisplay('#val01',val01);   //refreshes displays
+      //refreshes displays
+      updateDisplay('#val01',val01);
       updateDisplay('#val02',val02);
       $('#val02').hide();
       $('#val01').show();

@@ -1,7 +1,5 @@
 Welcome to your second weekend challenge! We are going to be building a calculator application using jQuery, Node, and Express!!
 
-
-
 [x] The client side will take in the values (in 2 input text fields) and the type of mathematical operation (selected using a button on the DOM).
 
 [x] Each of the numerical values and type of mathematical operation will be bundled up in an object and then sent to the server via a POST.
@@ -15,9 +13,6 @@ Welcome to your second weekend challenge! We are going to be building a calculat
 [x] Finally, build a 'clear' button that resets the whole experience.
 
 
-
-
-
 HARD MODE:
 [x] Convert the input fields for the two values to Buttons. So the experience would allow the user to click on a numerical button, then a mathematical operation, then a numerical button again. Then have an equal button that sends all of the information to the server.
 
@@ -25,3 +20,11 @@ PRO MODE:
 [x] Create a delay from when the client receives the response from the Server, and when the calculation is actually displayed on the DOM.
 
 The delay should be 3 seconds. During that delay, show information that says 'computing' until the 3 second delay has finished, then remove the 'computing' message while showing the calculation.
+
+
+FIX UP:
+[x] Code comments above their respective line.
+[] Switch cases on single value comparisons (your server side calc uses else/if chains).
+[] Get those event listener assignments out of the document ready and into a master function that turns on and off listeners.
+[] Have their function calls housed in their own functions for potential reuse.
+-->If you knock those out, I can give you more.
