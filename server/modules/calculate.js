@@ -1,10 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-//creates empty object for result
 var result = {};
 
-//performs calculation, depending on variables passed via POST request
 router.post('/calculate', function(req, res) {
   var operation = req.body.type;
   switch (operation) {
