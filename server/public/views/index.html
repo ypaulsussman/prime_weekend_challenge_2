@@ -1,55 +1,58 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
-    <title>Can't Spell Calculator Without a Y!</title>
+    <title>The Venerable Calcylator</title>
     <link rel="shortcut icon" href="views/images/calculator-152-170891.png">
     <link rel="stylesheet" href="vendors/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="views/style.css">
     <script src="vendors/jquery.js" charset="utf-8"></script>
     <script src="scripts/client.js" charset="utf-8"></script>
-  </head>
-  <body>
+</head>
+
+<body>
+  <br><br><br>
     <div class="container">
-
-      <div class="row values vertical-align">
-        <div class="col-md-12">
-          <h2 id="val01"></h2>
-          <h2 id="val02"></h2>
+        <br><br>
+        <div class="values row vertical-align">
+          <div class="col-md-12">
+            <h2 id="val01"></h2>
+            <h2 id="val02"></h2>
+          </div>
         </div>
-      </div>
-
+        <br>
         <div class="row">
-          <div class="col-sm-4"><button type="button" class="numberButton btn-success btn-lg" data-digit="1">1</button></div>
-          <div class="col-sm-4"><button type="button" class="numberButton btn-success btn-lg" data-digit="2">2</button></div>
-          <div class="col-sm-4"><button type="button" class="numberButton btn-success btn-lg" data-digit="3">3</button></div>
-        </div>
-        <div class="row">
-          <div class="col-sm-4"><button type="button" class="numberButton btn-success btn-lg" data-digit="4">4</button></div>
-          <div class="col-sm-4"><button type="button" class="numberButton btn-success btn-lg" data-digit="5">5</button></div>
-          <div class="col-sm-4"><button type="button" class="numberButton btn-success btn-lg" data-digit="6">6</button></div>
+            <div class="col-sm-4"><button type="button" class="numberButton btn-success btn-lg" data-digit="1">1</button></div>
+            <div class="col-sm-4"><button type="button" class="numberButton btn-success btn-lg" data-digit="2">2</button></div>
+            <div class="col-sm-4"><button type="button" class="numberButton btn-success btn-lg" data-digit="3">3</button></div>
         </div>
         <div class="row">
-          <div class="col-sm-4"><button type="button" class="numberButton btn-success btn-lg" data-digit="7">7</button></div>
-          <div class="col-sm-4"><button type="button" class="numberButton btn-success btn-lg" data-digit="8">8</button></div>
-          <div class="col-sm-4"><button type="button" class="numberButton btn-success btn-lg" data-digit="9">9</button></div>
+            <div class="col-sm-4"><button type="button" class="numberButton btn-success btn-lg" data-digit="4">4</button></div>
+            <div class="col-sm-4"><button type="button" class="numberButton btn-success btn-lg" data-digit="5">5</button></div>
+            <div class="col-sm-4"><button type="button" class="numberButton btn-success btn-lg" data-digit="6">6</button></div>
         </div>
         <div class="row">
-          <div class="col-sm-4"><button type="button" class="numberButton btn-success btn-lg" data-digit="0">0</button></div>
-          <div class="col-sm-4"><button type="button" class="numberButton btn-info btn-lg" data-digit=".">.</button></div>
-          <div class="col-sm-4"><button type="button" class=" btn-info btn-lg" id="deleteButton">Del</button></div>
+            <div class="col-sm-4"><button type="button" class="numberButton btn-success btn-lg" data-digit="7">7</button></div>
+            <div class="col-sm-4"><button type="button" class="numberButton btn-success btn-lg" data-digit="8">8</button></div>
+            <div class="col-sm-4"><button type="button" class="numberButton btn-success btn-lg" data-digit="9">9</button></div>
         </div>
         <div class="row">
-          <div class="col-sm-3"><button type="button" class="operatorButton btn-primary btn-lg" data-operator="add">+</button></div>
-          <div class="col-sm-3"><button type="button" class="operatorButton btn-primary btn-lg" data-operator="subtract">-</button></div>
-          <div class="col-sm-3"><button type="button" class="operatorButton btn-primary btn-lg" data-operator="multiply">*</button></div>
-          <div class="col-sm-3"><button type="button" class="operatorButton btn-primary btn-lg" data-operator="divide">/</button></div>
+            <div class="col-sm-4"><button type="button" class="numberButton btn-success btn-lg" data-digit="0">0</button></div>
+            <div class="col-sm-4"><button type="button" class="numberButton btn-info btn-lg" data-digit=".">.</button></div>
+            <div class="col-sm-4"><button type="button" class=" btn-info btn-lg" id="deleteButton">Del</button></div>
         </div>
-      <div class="row">
-        <div class="col-sm-6"><button type="button" class="btn-default btn-lg"id="submitButton" disabled>=</button></div>
-        <div class="col-sm-6"><button type="button" class="btn-warning btn-lg"id="clearButton">Clear</button></div>
-      </div>
+        <div class="row">
+            <div class="col-sm-3"><button type="button" class="operatorButton btn-primary btn-lg" data-operator="add">+</button></div>
+            <div class="col-sm-3"><button type="button" class="operatorButton btn-primary btn-lg" data-operator="subtract">-</button></div>
+            <div class="col-sm-3"><button type="button" class="operatorButton btn-primary btn-lg" data-operator="multiply">*</button></div>
+            <div class="col-sm-3"><button type="button" class="operatorButton btn-primary btn-lg" data-operator="divide">/</button></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6"><button type="button" class="btn-default btn-lg" id="submitButton" disabled>=</button></div>
+            <div class="col-sm-6"><button type="button" class="btn-warning btn-lg" id="clearButton">Clear</button></div>
+        </div>
     </div>
+</body>
 
-  </body>
 </html>
