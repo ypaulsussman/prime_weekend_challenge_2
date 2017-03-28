@@ -26,5 +26,5 @@ FIX UP:
 [x] Code comments above their respective line.
 [x] Switch cases on single value comparisons (your server side calc uses else/if chains).
 [x] Get those event listener assignments out of the document ready and into a master function that turns on and off listeners.
-[] Have their function calls housed in their own functions for potential reuse.
+[x] Have their function calls housed in their own functions for potential reuse.
 -->If you knock those out, I can give you more.
