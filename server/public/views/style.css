@@ -12,7 +12,3 @@ button{
   text-align: center;
   margin: auto;
 }
-
-#val01, #val02, #calcScreen, #finAnswer{
-  font-size: 5em;
-}

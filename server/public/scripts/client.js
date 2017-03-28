@@ -69,7 +69,7 @@ function performCalc() {
     url: '/calculate/calculate',
     data: calculation,
     success: function (response) {
-      $('.wait').append('<h2 id = "calcScreen">Calculating...</h2>');
+      $('#val02').text('Calculating...');
       setTimeout(function() {
         delayedReveal(response);
       }, 3000);
@@ -78,13 +78,16 @@ function performCalc() {
 }
 
 function delayedReveal(response) {
-  $('.wait').empty();
-  $('.answer').append('<h2 id = "finAnswer"> The answer is: ' + response.calc + '</h2>');
+  val02 = "";
+  operator = "";
+  $('#val02').empty().hide();
+  $('#val01').show();
+  val01 = response.calc;
+  $('#val01').text(response.calc);
   $('#submitButton').attr('disabled', true);
   }
 
 function clearAll() {
-  $('.answer').empty();
   operator = "";
   val01 = "";
   val02 = "";
