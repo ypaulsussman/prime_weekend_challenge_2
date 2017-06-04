@@ -1,30 +1,28 @@
-Welcome to your second weekend challenge! We are going to be building a calculator application using jQuery, Node, and Express!!
+# Server-Side Calculator
 
-[x] The client side will take in the values (in 2 input text fields) and the type of mathematical operation (selected using a button on the DOM).
+Y Paul Sussman: March 17th, 2017; Version 1.0
 
-[x] Each of the numerical values and type of mathematical operation will be bundled up in an object and then sent to the server via a POST.
-    ---> So when the object is sent, it should look something like this: { x: 3, y: 4, type: Add }
+## Application Overview
+This was my first from-scratch software with logic on the server. It does what it says on the label: it's a browser-based calculator. The delay when "computing" is one of the reach goals from the project specs (this was the Weekend Challenge for our second week of in-class instruction at Prime Digital Academy.)
 
-[x] Once the server receives it, build out logic to compute the numbers in 1 of 4 different ways.
-    ---> The server should be able to handle Addition, Subtraction, Multiplication, and Division.
+## Getting Started
 
-[x] Once the calculation is complete, it should be sent back down to the client side app where it should be displayed on the DOM.
+Fork, clone, or download the project, then run `npm install`.
 
-[x] Finally, build a 'clear' button that resets the whole experience.
+You'll also need to download [the most-recent version of Bootstrap 3](http://getbootstrap.com/getting-started/#download), then copy the unzipped `bootstrap-3.3.7-dist` folder into `server/public/vendors`.
 
+## Built With
 
-HARD MODE:
-[x] Convert the input fields for the two values to Buttons. So the experience would allow the user to click on a numerical button, then a mathematical operation, then a numerical button again. Then have an equal button that sends all of the information to the server.
+* HTML 5, CSS 3, Bootstrap, and jQuery; and
+* Node.js, and Express.js.
 
-PRO MODE:
-[x] Create a delay from when the client receives the response from the Server, and when the calculation is actually displayed on the DOM.
+## Learning Value
 
-The delay should be 3 seconds. During that delay, show information that says 'computing' until the 3 second delay has finished, then remove the 'computing' message while showing the calculation.
+Writing this section some three months later, it's difficult to recall what the major complications building this were, if any. (_Apparently commenting code was a serious challenge for the Y Paul of early 2017..._) I had just become familiar with using the `data-` attribute to store information on the DOM, and `index.html` reveals my excitement.
 
+Module use in node.js was still clearly a heavy concern for me at the time (_witness the 1:1 comment-to-code ratio in_ `app.js`), but honestly? In retrospect, the most pleasant server-side surprise is seeing March-Y-Paul's use of a `switch` statement. June-Y-Paul would have expected him to have been confined to endless `else if` chains: nice work, previous me.
 
-FIX UP:
-[x] Code comments above their respective line.
-[x] Switch cases on single value comparisons (your server side calc uses else/if chains).
-[x] Get those event listener assignments out of the document ready and into a master function that turns on and off listeners.
-[x] Have their function calls housed in their own functions for potential reuse.
--->If you knock those out, I can give you more.
+## Demo
+<p align="center">
+  <img src="Server-Side_Calculator.gif" alt="walkthrough gif"/>
+</p>
